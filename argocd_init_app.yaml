@@ -13,5 +13,5 @@ spec:
     repoURL: 'https://github.com/adonisgarciac/gitops-pull-mode.git'
     targetRevision: HEAD
   sources: []
-  project: default
+  project: acm
 ...
