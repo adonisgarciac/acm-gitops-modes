@@ -19,8 +19,8 @@ spec:
               repoURL: https://github.com/adonisgarciac/gitops-pull-mode.git
               revision: main
               directories:
-              - path: acm-globalcluster-configuration/push-mode/monitoring/base/
-              - path: acm-globalcluster-configuration/push-mode/monitoring/'{{cluster}}'/
+              - path: push-mode/monitoring/base/
+              - path: push-mode/monitoring/'{{cluster}}'/
   template:
     metadata:
       name: '{{path.basename}}'

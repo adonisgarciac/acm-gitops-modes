@@ -1,0 +1,17 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: testing-gitops
+spec:
+  destination:
+    name: ''
+    namespace: openshift-gitops
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: appsets
+    repoURL: 'https://github.com/adonisgarciac/gitops-pull-mode.git'
+    targetRevision: HEAD
+  sources: []
+  project: default
+...
