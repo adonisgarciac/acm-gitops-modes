@@ -18,7 +18,6 @@ spec:
               revision: main
               directories:
               - path: push-mode/base/monitoring/
-              - path: push-mode/overlay/{{cluster}}/monitoring/
   template:
     metadata:
       name: '{{path.basename}}'

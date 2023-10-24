@@ -2,8 +2,6 @@
 apiVersion: cluster.open-cluster-management.io/v1beta2
 kind: ManagedClusterSetBinding
 metadata:
-  annotations:
-    argocd.argoproj.io/sync-wave: "-10"
   name: global
   namespace: openshift-gitops
 spec:
