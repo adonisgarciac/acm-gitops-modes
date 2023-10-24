@@ -1,6 +1,5 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
-  kind: Kustomization
-
-  resources:
-    - cluster_monitoring_config.yaml
-    - user_workload_monitoring_config.yaml
+kind: Kustomization
+resources:
+  - cluster_monitoring_config.yaml
+  - user_workload_monitoring_config.yaml
