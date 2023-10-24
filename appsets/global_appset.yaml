@@ -22,14 +22,15 @@ spec:
               - path: push-mode/overlay/{{cluster}}/monitoring/
   template:
     metadata:
-      name: '{{path.basename}}'
+      name: test
     spec:
       project: acm
       source:
         repoURL: https://github.com/adonisgarciac/gitops-pull-mode.git
         targetRevision: main
-        path: '{{path}}'
+        path: push-mode/base/monitoring/
       destination:
+        namespace: openshift-monitoring
         server: '{{server}}'
       syncPolicy:
         automated:
