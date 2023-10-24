@@ -1,0 +1,41 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
+  name: globalconfig-applicationset
+  namespace: openshift-gitops
+spec:
+  generators:
+    - matrix:
+        generators:
+          - clusterDecisionResource:
+              configMapRef: acm-placement
+              labelSelector:
+                matchLabels:
+                  cluster.open-cluster-management.io/placement: global-application-placement
+          - git:
+              repoURL: https://github.com/adonisgarciac/gitops-pull-mode.git
+              revision: main
+              directories:
+              - path: acm-globalcluster-configuration/push-mode/monitoring/base/
+              - path: acm-globalcluster-configuration/push-mode/monitoring/'{{cluster}}'/
+  template:
+    metadata:
+      name: '{{path.basename}}'
+    spec:
+      project: acm
+      source:
+        repoURL: https://github.com/adonisgarciac/gitops-pull-mode.git
+        targetRevision: main
+        path: '{{path}}'
+      destination:
+        server: '{{server}}'
+        namespace: openshift-monitoring
+      syncPolicy:
+        automated:
+          selfHeal: false
+          prune: false
+        syncOptions: []
+...
