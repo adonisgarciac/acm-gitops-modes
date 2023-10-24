@@ -2,8 +2,6 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  annotations:
-    argocd.argoproj.io/sync-wave: "5"
   name: globalconfig-applicationset
   namespace: openshift-gitops
 spec:
@@ -19,8 +17,8 @@ spec:
               repoURL: https://github.com/adonisgarciac/gitops-pull-mode.git
               revision: main
               directories:
-              - path: push-mode/monitoring/base/
-              - path: push-mode/monitoring/overlays/{{cluster}}/
+              - path: push-mode/base/monitoring/
+              - path: push-mode/overlay/{{cluster}}/monitoring/
   template:
     metadata:
       name: '{{path.basename}}'
