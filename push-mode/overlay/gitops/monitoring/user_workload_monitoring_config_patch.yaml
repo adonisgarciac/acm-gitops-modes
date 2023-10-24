@@ -14,10 +14,4 @@ data:
           resources:
             requests:
               storage: 15Gi
-    thanosRuler:
-      volumeClaimTemplate:
-        spec:
-          resources:
-            requests:
-              storage: 2Gi
 ...
