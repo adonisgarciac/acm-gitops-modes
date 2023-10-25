@@ -17,11 +17,11 @@ spec:
               repoURL: https://github.com/adonisgarciac/gitops-pull-mode.git
               revision: main
               directories:
-              - path: push-mode/overlay/{{cluster}}/monitoring
+              - path: push-mode/overlay/{{clusterName}}/monitoring
               - path: push-mode/base/monitoring
   template:
     metadata:
-      name: '{{path.basename}}-{{cluster}}'
+      name: '{{path.basename}}-{{clusterName}}'
     spec:
       project: acm
       source:
