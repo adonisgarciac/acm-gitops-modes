@@ -17,10 +17,10 @@ spec:
               repoURL: https://github.com/adonisgarciac/gitops-pull-mode.git
               revision: main
               directories:
-              - path: push-mode/overlay/{{clusterName}}/monitoring
+              - path: push-mode/monitoring/overlay/{{clusterName}}
   template:
     metadata:
-      name: '{{path.basename}}-{{clusterName}}'
+      name: '{{clusterName}}-{{path[1]}}'
     spec:
       project: acm
       source:
@@ -34,5 +34,4 @@ spec:
           selfHeal: false
           prune: false
         syncOptions: []
-
 ...
