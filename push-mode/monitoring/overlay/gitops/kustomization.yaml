@@ -3,4 +3,4 @@ kind: Kustomization
 bases:
 - ../../base
 patches:
-- user_workload_monitoring_config_patch.yaml
+- path: user_workload_monitoring_config_patch.yaml
