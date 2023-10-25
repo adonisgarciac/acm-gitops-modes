@@ -13,24 +13,22 @@ spec:
               labelSelector:
                 matchLabels:
                   cluster.open-cluster-management.io/placement: global-application-placement
-              requeueAfterSeconds: 180
           - git:
               repoURL: https://github.com/adonisgarciac/gitops-pull-mode.git
               revision: main
               directories:
-              - path: push-mode/base/monitoring/
-              - path: push-mode/overlay/{{cluster}}/monitoring/
+              - path: push-mode/base/monitoring
+              - path: push-mode/overlay/{{cluster}}/monitoring
   template:
     metadata:
-      name: test
+      name: '{{path.basename}}'
     spec:
       project: acm
       source:
         repoURL: https://github.com/adonisgarciac/gitops-pull-mode.git
         targetRevision: main
-        path: push-mode/base/monitoring/
+        path: '{{path}}'
       destination:
-        namespace: openshift-monitoring
         server: '{{server}}'
       syncPolicy:
         automated:
