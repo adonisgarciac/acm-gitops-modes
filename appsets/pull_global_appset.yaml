@@ -17,10 +17,16 @@ spec:
               repoURL: https://github.com/adonisgarciac/gitops-pull-mode.git
               revision: main
               directories:
-              - path: monitoring/overlay/{{clusterName}}
+              - path: helloWorld/overlay/{{clusterName}}
   template:
     metadata:
-      name: '{{clusterName}}-{{path[1]}}'
+      annotations:
+        apps.open-cluster-management.io/ocm-managed-cluster: '{{clusterName}}'
+        apps.open-cluster-management.io/ocm-managed-cluster-app-namespace: openshift-gitops
+        argocd.argoproj.io/skip-reconcile: "true"
+      labels:
+        apps.open-cluster-management.io/pull-to-ocm-managed-cluster: "true"
+      name: '{{clusterName}}-{{path[0]}}'
     spec:
       project: acm
       source:

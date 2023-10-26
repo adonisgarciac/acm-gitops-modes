@@ -20,7 +20,7 @@ spec:
               - path: monitoring/overlay/{{clusterName}}
   template:
     metadata:
-      name: '{{clusterName}}-{{path[1]}}'
+      name: '{{clusterName}}-{{path[0]}}'
     spec:
       project: acm
       source:
