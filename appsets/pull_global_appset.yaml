@@ -17,7 +17,7 @@ spec:
               repoURL: https://github.com/adonisgarciac/gitops-pull-mode.git
               revision: main
               directories:
-              - path: helloWorld/overlay/{{clusterName}}
+              - path: helloworld/overlay/{{clusterName}}
   template:
     metadata:
       annotations:
