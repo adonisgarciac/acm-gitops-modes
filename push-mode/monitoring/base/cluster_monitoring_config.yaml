@@ -12,11 +12,11 @@ data:
         spec:
           resources:
             requests:
-              storage: 10Gi
+              storage: 20Gi
     alertmanagerMain:
       volumeClaimTemplate:
         spec:
           resources:
             requests:
-              storage: 2Gi
+              storage: 4Gi
 ...
