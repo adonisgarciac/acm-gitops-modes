@@ -17,7 +17,7 @@ spec:
               repoURL: https://github.com/adonisgarciac/gitops-pull-mode.git
               revision: main
               directories:
-              - path: push-mode/monitoring/overlay/{{clusterName}}
+              - path: monitoring/overlay/{{clusterName}}
   template:
     metadata:
       name: '{{clusterName}}-{{path[1]}}'
