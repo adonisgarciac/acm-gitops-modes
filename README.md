@@ -66,7 +66,7 @@ ManagedCluster objects (placement, gitopscluster and managedclustersetbinding) a
 
 2. hello-world namespace
 ```bash
-    oc apply -f argocd/argocd_helloworld_ns.yaml
+    oc apply -f argocd/argocd/argocd_helloworld_ns.yaml
 ```
 
 ### On HUB cluster
