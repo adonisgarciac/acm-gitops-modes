@@ -14,7 +14,7 @@ spec:
                 matchLabels:
                   cluster.open-cluster-management.io/placement: managedcluster-application-placement
           - git:
-              repoURL: https://github.com/adonisgarciac/gitops-pull-mode.git
+              repoURL: https://github.com/adonisgarciac/acm-gitops-modes.git
               revision: main
               directories:
               - path: helloworld-kustomize/overlay/{{clusterName}}
@@ -30,7 +30,7 @@ spec:
     spec:
       project: acm
       source:
-        repoURL: https://github.com/adonisgarciac/gitops-pull-mode.git
+        repoURL: https://github.com/adonisgarciac/acm-gitops-modes.git
         targetRevision: main
         path: '{{path}}'
       destination:

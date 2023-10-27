@@ -82,3 +82,8 @@ ManagedCluster objects (placement, gitopscluster and managedclustersetbinding) a
 ```bash
     oc apply -f argocd/argocd_init_app.yaml
 ```
+
+3. hello-world namespace
+```bash
+    oc apply -f argocd/argocd_helloworld_ns.yaml
+```

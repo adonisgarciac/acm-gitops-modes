@@ -11,7 +11,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     path: appsets
-    repoURL: 'https://github.com/adonisgarciac/gitops-pull-mode.git'
+    repoURL: 'https://github.com/adonisgarciac/acm-gitops-modes.git'
     targetRevision: HEAD
   sources: []
   project: acm
