@@ -56,7 +56,7 @@ ManagedCluster objects (placement, gitopscluster and managedclustersetbinding) a
 ```
 
 ## Create ArgoCD needed resources
-### On every managed cluster (except HUB cluster)
+### Every managed cluster (except HUB cluster)
 
 1. ACM project in ArgoCD
 
@@ -69,7 +69,7 @@ ManagedCluster objects (placement, gitopscluster and managedclustersetbinding) a
     oc apply -f argocd/argocd_helloworld_ns.yaml
 ```
 
-### On HUB cluster
+### HUB cluster
 
 1. ACM project in ArgoCD
 
