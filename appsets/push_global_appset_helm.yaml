@@ -29,7 +29,7 @@ spec:
         path: '{{path}}'
         helm:
           valueFiles:
-            - helloworld-helm/values_{{clusterName}}.yaml
+            - values_{{clusterName}}.yaml
       destination:
         server: '{{server}}'
       syncPolicy:

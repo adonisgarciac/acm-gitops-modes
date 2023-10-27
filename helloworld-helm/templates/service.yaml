@@ -6,7 +6,7 @@ metadata:
   namespace: hello-world
 spec:
   selector:
-    deployment: hello
+    deployment: hello-helm
   type: LoadBalancer
   ports:
   - protocol: TCP
