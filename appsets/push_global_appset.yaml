@@ -5,6 +5,8 @@ metadata:
   name: push-globalconfig-applicationset
   namespace: openshift-gitops
 spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
   generators:
     - matrix:
         generators:
@@ -17,18 +19,23 @@ spec:
               repoURL: https://github.com/adonisgarciac/gitops-pull-mode.git
               revision: main
               directories:
-              - path: monitoring/overlay/{{clusterName}}
+              - path: monitoring/overlay/{{.clusterName}}
   template:
     metadata:
-      name: '{{clusterName}}-{{path[0]}}'
+      name: '{{.clusterName}}-{{index .path.segments 0}}'
     spec:
       project: acm
       source:
         repoURL: https://github.com/adonisgarciac/gitops-pull-mode.git
         targetRevision: main
-        path: '{{path}}'
+        path:  |
+         {{ - if .path.path }}
+           {{.path.path}}
+         {{ - else }}
+           {{index .path.segments 0}}/base
+         {{ - end }}
       destination:
-        server: '{{server}}'
+        server: '{{.server}}'
       syncPolicy:
         automated:
           selfHeal: false
