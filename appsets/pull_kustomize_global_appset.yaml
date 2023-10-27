@@ -2,11 +2,9 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: pull-globalconfig-applicationset
+  name: pull-kustomize-globalconfig-applicationset
   namespace: openshift-gitops
 spec:
-  goTemplate: true
-  goTemplateOptions: ["missingkey=error"]
   generators:
     - matrix:
         generators:
@@ -19,27 +17,22 @@ spec:
               repoURL: https://github.com/adonisgarciac/gitops-pull-mode.git
               revision: main
               directories:
-              - path: helloworld/overlay/{{.clusterName}}
+              - path: helloworld-kustomize/overlay/{{clusterName}}
   template:
     metadata:
       annotations:
-        apps.open-cluster-management.io/ocm-managed-cluster: '{{.clusterName}}'
+        apps.open-cluster-management.io/ocm-managed-cluster: '{{clusterName}}'
         apps.open-cluster-management.io/ocm-managed-cluster-app-namespace: openshift-gitops
         argocd.argoproj.io/skip-reconcile: "true"
       labels:
         apps.open-cluster-management.io/pull-to-ocm-managed-cluster: "true"
-      name: '{{.clusterName}}-{{index .path.segments 0}}'
+      name: '{{clusterName}}-{{path[0]}}'
     spec:
       project: acm
       source:
         repoURL: https://github.com/adonisgarciac/gitops-pull-mode.git
         targetRevision: main
-        path:  |
-         {{ - if .path.path }}
-           {{.path.path}}
-         {{ - else }}
-           {{index .path.segments 0}}/base
-         {{ - end }}
+        path: '{{path}}'
       destination:
         server: '{{server}}'
       syncPolicy:

@@ -1,0 +1,10 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: the-map
+  namespace: hello-world
+data:
+  altGreeting: "Good Morning!"
+  enableRisky: "false"
+...
