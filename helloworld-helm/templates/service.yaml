@@ -2,7 +2,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: the-service
+  name: the-service-helm
   namespace: hello-world
 spec:
   selector:
@@ -10,6 +10,6 @@ spec:
   type: LoadBalancer
   ports:
   - protocol: TCP
-    port: 8666
+    port: 8667
     targetPort: 8080
 ...

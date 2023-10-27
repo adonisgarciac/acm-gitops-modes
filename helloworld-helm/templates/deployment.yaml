@@ -2,20 +2,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: the-deployment
+  name: the-deployment-helm
   namespace: hello-world
 spec:
-  replicas: 3
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      deployment: hello
+      deployment: hello-helm
   template:
     metadata:
       labels:
-        deployment: hello
+        deployment: hello-helm
     spec:
       containers:
-      - name: the-container
+      - name: the-container-helm
         image: monopole/hello:1
         command: ["/hello",
                   "--port=8080",
@@ -26,11 +26,11 @@ spec:
         - name: ALT_GREETING
           valueFrom:
             configMapKeyRef:
-              name: the-map
+              name: the-map-helm
               key: altGreeting
         - name: ENABLE_RISKY
           valueFrom:
             configMapKeyRef:
-              name: the-map
+              name: the-map-helm
               key: enableRisky
 ...
