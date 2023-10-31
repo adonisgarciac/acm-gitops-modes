@@ -49,12 +49,6 @@ ManagedCluster objects (placement, gitopscluster and managedclustersetbinding) a
     oc apply -f acm/acm_managedcluster_managedclustersetginding.yaml
 ```
 
-3. ACM GitOps cluster for managed cluster placement
-
-```bash
-    oc apply -f acm/acm_managedcluster_gitopscluster.yaml
-```
-
 ## Create ArgoCD needed resources
 ### Every managed cluster (except HUB cluster)
 
