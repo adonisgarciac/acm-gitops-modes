@@ -5,7 +5,7 @@
 - Red Hat ACM working in one cluster (operator and MultiClusterHub installed).
 - Red Hat OpenShift GitOps installed in every cluster with an ArgoCD instance.
 - Rest of clusters attached to RH ACM as managed clusters. One of them must have cluster1 as name.
-- Rest of clusters are part of the managedcluster ClusterSet in RH ACM. We can create managedcluster ClusterSet using acm/acm_managedclusterset.yaml. Launch following command on ACM cluster:
+- Rest of clusters are part of the managedcluster ClusterSet in RH ACM. We can create managedcluster ClusterSet using acm/acm_managedclusterset.yaml. Launch following command in ACM cluster:
 ```bash
     oc apply -f acm/acm_managedclusterset.yaml
 ```
@@ -77,13 +77,13 @@ ManagedCluster objects (placement, gitopscluster and managedclustersetbinding) a
     oc apply -f argocd/argocd_acm_project.yaml
 ```
 
-2. Init ArgoCD app which will create appsets
+2. hello-world namespace
+```bash
+    oc apply -f argocd/argocd_helloworld_ns.yaml
+```
+
+3. Init ArgoCD app which will create appsets
 
 ```bash
     oc apply -f argocd/argocd_init_app.yaml
-```
-
-3. hello-world namespace
-```bash
-    oc apply -f argocd/argocd_helloworld_ns.yaml
 ```
