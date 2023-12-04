@@ -1,9 +1,8 @@
 ---
 apiVersion: argoproj.io/v1alpha1
-kind: ApplicationSet
+kind: Application
 metadata:
   name: push-globalconfig-applicationset-helm
-  namespace: openshift-gitops
 spec:
   project: acm
   source:
