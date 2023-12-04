@@ -10,7 +10,7 @@ spec:
     namespace: openshift-gitops
     server: 'https://kubernetes.default.svc'
   source:
-    path: appsets
+    path: apps
     repoURL: 'https://github.com/adonisgarciac/acm-gitops-modes.git'
     targetRevision: HEAD
   sources: []

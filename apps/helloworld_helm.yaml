@@ -1,0 +1,23 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: push-globalconfig-applicationset-helm
+  namespace: openshift-gitops
+spec:
+  project: acm
+  source:
+    repoURL: https://github.com/adonisgarciac/acm-gitops-modes.git
+    targetRevision: main
+    path: 'helloworld-helm'
+    helm:
+      valueFiles:
+        - values_local-cluster.yaml
+  destination:
+    server: 'https://kubernetes.default.svc'
+  syncPolicy:
+    automated:
+      selfHeal: false
+      prune: false
+    syncOptions: []
+...
